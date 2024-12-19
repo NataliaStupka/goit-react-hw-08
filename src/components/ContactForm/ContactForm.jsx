@@ -5,7 +5,7 @@ import s from "./ContactForm.module.css";
 
 import { useDispatch } from "react-redux";
 //import { addContact } from "../../redux/contactsOps";
-import { addContact } from "../../redux/contacts/contactsOps";
+import { addContact } from "../../redux/contacts/operations";
 
 const ContactForm = () => {
   //початкові значення форми, (прописуємо у Formik)

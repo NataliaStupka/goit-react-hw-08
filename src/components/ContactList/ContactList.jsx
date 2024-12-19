@@ -8,7 +8,7 @@ import { selectFilteredContactsMemo } from "../../redux/filters/selectors";
 import { selectIsError, selectIsLoading } from "../../redux/contacts/selectors";
 
 import { useEffect } from "react";
-import { fetchContacts } from "../../redux/contacts/contactsOps"; //запит на бекенд
+import { fetchContacts } from "../../redux/contacts/operations"; //запит на бекенд
 import Loader from "../Loader/Loader";
 
 const ContactList = () => {
