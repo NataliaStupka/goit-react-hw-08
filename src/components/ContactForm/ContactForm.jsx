@@ -3,9 +3,11 @@ import * as Yup from "yup"; //валідація форми
 import { nanoid } from "nanoid"; //id //включений в Redux
 import s from "./ContactForm.module.css";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 //import { addContact } from "../../redux/contactsOps";
 import { addContact } from "../../redux/contacts/operations";
+import toast from "react-hot-toast";
+import { selectContacts } from "../../redux/contacts/selectors";
 
 const ContactForm = () => {
   //початкові значення форми, (прописуємо у Formik)
@@ -15,6 +17,7 @@ const ContactForm = () => {
   };
 
   const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
 
   //values це initialValues
   const handleSubmit = (values, options) => {
@@ -25,7 +28,22 @@ const ContactForm = () => {
       name: values.username, //з name Field
       number: values.tel,
     };
+
+    //
+    const dublicate = contacts.some(
+      (contact) =>
+        contact.name === newContact.name && contact.number === newContact.number
+    );
+    if (dublicate) {
+      toast.error(`Контакт з таким ім'ям чи телефоном вже є у списку.`);
+      return;
+    }
+
     dispatch(addContact(newContact));
+
+    toast.success(
+      `Контакт '${newContact.name}' з номером: ${newContact.number} додано!`
+    );
   };
 
   // валідация, прописуємо у Formik

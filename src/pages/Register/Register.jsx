@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import RegisterForm from "../../components/RegisterForm/RegisterForm";
+import RegisterationForm from "../../components/RegisterationForm/RegisterationForm";
 
 const Register = () => {
   return (
@@ -10,7 +10,7 @@ const Register = () => {
       >
         Home page
       </NavLink>
-      <RegisterForm />
+      <RegisterationForm />
     </div>
   );
 };

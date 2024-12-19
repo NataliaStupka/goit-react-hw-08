@@ -54,16 +54,16 @@ _Скопіювали 7 дз._
 
 1. App: додаємо маршрутизатор <BrowserRouter><App/></BrowserRouter>
 2. додамо сторінки (**pages**): в App з компонентів на <Routes><Route path='/' element={}></Route></Routes>
-   2.1. в App додаємо компонент Loyout (в компоненті Loyout: Header(Home, Contacts, Login, Register, Logout), Outlet)
-   2.2. в App Loyout: маршрути Home, Contact; за Layout: Register, Login
-3. є маршрути (<Route path='/' element={<Home/>}/>) - є переходи (<Navlink to='/'/>)
+   2.1. в App додаємо компонент Loyout (в компоненті Loyout: AppBar(HomePage, Contacts, Login, Register, Logout), Outlet)
+   2.2. в App Loyout: маршрути HomePage, Contact; за Layout: Register, Login
+3. є маршрути (<Route path='/' element={<HomePage/>}/>) - є переходи (<Navlink to='/'/>)
 
 - **логіка**:
 
 4.  redux: папки(auth: slice(інформація про користувача); operations(дії); selector(інформация із slice));
 5.  в store імпортуємо reducer з slice
 6.  якщо декілька окремих бекендів, то створюється окремі axios: const goitApi = axios.create()
-7.  реєстрація: в operation, в slice зберігаємо дані, та на RegisterForm
+7.  реєстрація: в operation, в slice зберігаємо дані, та на RegisterationForm
 8.  логінізація: -//-
     8.1. якщо **юзер залогінився** перекидауємо його на контакти (через <Navigate to='/contacts/'/>
     або dispatch().unwrap().then(() => {navigate('/contacts')}))
@@ -155,3 +155,8 @@ _Скопіювали 6 дз._
 - npm install react-router-dom - Маршрутизатор
 
 - **Redux DevTools** (вкладка Redux) - розширення інструментів
+
+<!--  -->
+
+import { IoMdStar } from "react-icons/io";
+<IoMdStar />

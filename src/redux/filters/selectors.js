@@ -12,10 +12,14 @@ export const selectSearchFilter = (state) => state.filter.searchContact; //по�
 export const selectFilteredContactsMemo = createSelector(
   [selectContacts, selectSearchFilter],
   (contacts, filter) => {
-    return contacts.filter((item) =>
-      item.name.toLowerCase().includes(filter.toLowerCase())
+    return contacts.filter(
+      (item) =>
+        item.name.toLowerCase().includes(filter.toLowerCase()) ||
+        item.number.includes(filter) //пошук за номером
     );
   }
 );
 //selectFilteredContacts - передамо в ContactList для рендера контактів
 //замість selectContacts
+
+//Number(item.number)

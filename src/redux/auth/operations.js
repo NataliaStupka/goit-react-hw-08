@@ -68,7 +68,6 @@ export const refreshUser = createAsyncThunk(
   async (_, thunkAPI) => {
     //thunkAPI.getState() - поверне весь store(auth(isLoggedIn, token), user, ...)
     const savedToken = thunkAPI.getState().auth.token; //отримуємо рядок token
-    console.log("STORE:", savedToken);
 
     if (!savedToken) {
       return thunkAPI.rejectWithValue("Token is not exist!");

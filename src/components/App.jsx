@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom"; //маршрутизатор
 
 import Layout from "./Layout"; //обгортка з хедером
 //pages
-import Home from "../pages/Home/Home";
+import HomePage from "../pages/HomePage/HomePage";
 import Contacts from "../pages/Contacts/Contacts";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
@@ -27,7 +27,7 @@ function App() {
   return isRefreshing ? null : (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
+        <Route index element={<HomePage />} />
         <Route
           path="/contacts"
           element={
@@ -55,10 +55,3 @@ function App() {
 }
 
 export default App;
-
-//  <div>
-//    <h1>Phonebook (home-work_8)</h1>
-//    <ContactForm />
-//    <SearchBox />
-//    <ContactList />
-//  </div>;

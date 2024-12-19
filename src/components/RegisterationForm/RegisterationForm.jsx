@@ -1,5 +1,5 @@
 import { Field, Form, Formik } from "formik";
-import s from "./RegisterForm.module.css";
+import s from "./RegisterationForm.module.css";
 
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 import { register } from "../../redux/auth/operations";
 
-const RegisterForm = () => {
+const RegisterationForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate(); //для перенаправлення на контакти
 
@@ -15,11 +15,11 @@ const RegisterForm = () => {
     dispatch(register(values))
       .unwrap() // чекаємо відповідь і перенаправляємо на список контактів
       .then((res) => {
-        toast(`Welcom ${res.user.name}`);
+        toast(`Welcom, ${res.user.name}`);
         navigate("/contacts");
       })
       .catch(() => {
-        toast.error("сталася помилка! Спробуй ще раз.");
+        toast.error("Сталася помилка! Спробуй ще раз.");
       });
 
     options.resetForm();
@@ -47,4 +47,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default RegisterationForm;
